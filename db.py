@@ -16,7 +16,7 @@ class Database:
        rows = self.cur.fetchall()
        return rows
    def insert_book(self, bookID,title, author , ISBN, genre, availability_status):
-       self.cur.execute("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?, ?)", (bookID, title, author, availability_status))
+       self.cur.execute("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?, ?)", (bookID, title, author, ISBN,genre, availability_status))
        self.conn.commit()
 
 
