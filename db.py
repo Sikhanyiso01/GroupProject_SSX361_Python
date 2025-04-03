@@ -1,13 +1,5 @@
 import sqlite3
 
-def create_database():
-    conn = sqlite3.connect("library.db")
-    conn.close()
-
-def create_tables():
-    conn = sqlite3.connect("library.db")
-    cursor = conn.cursor()
-
 class Database:
    def __init__(self, db):
        self.conn = sqlite3.connect(db)
