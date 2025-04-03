@@ -12,16 +12,17 @@ class Database:
 
 def select_members(self):
     self.cur.execute("SELECT * FROM Members")
-    self.conn.commit()
+    rows = self.cur.fetchall()
+    return rows
 
-def insert_members(self, MembershipID, Name, Contact, MembershipType):
-    self.cur.execute("INSERT INTO Members VALUES (?, ?, ?, ?)", (MembershipID, Name, Contact, MembershipType))
+def insert_members(self, MembershipID):
+    self.cur.execute("INSERT INTO Members VALUES (MembershipID ?)", (MembershipID))
     self.conn.commit()
 
 def update_members(self, MembershipID, Name, Contact, MembershipType):
-    self.cur.execute("UPDATE Members VALUES (?, ?, ?, ?,)", (MembershipID, Name, Contact, MembershipType))
+    self.cur.execute("UPDATE Members VALUES (?)", (MembershipID, Name, Contact, MembershipType))
     self.conn.commit()
 
-def delete_members(self, MembershipID, Name, Contact, MembershipType):
-    self.cur.execute("DELETE FROM Members VALUES (?, ?, ?, ?,)", (MembershipID, Name, Contact, MembershipType))
+def delete_members(self, MembershipID):
+    self.cur.execute("DELETE FROM Members VALUES (MembershipID?)", (MembershipID ))
     self.conn.commit()
