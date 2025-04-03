@@ -1,13 +1,5 @@
 import sqlite3
 
-def create_database():
-    conn = sqlite3.connect("library.db")
-    conn.close()
-
-def create_tables():
-    conn = sqlite3.connect("library.db")
-    cursor = conn.cursor()
-
 class Database:
    def __init__(self, db):
        self.conn = sqlite3.connect(db)
@@ -18,5 +10,10 @@ class Database:
            "CREATE TABLE IF NOT EXIST Member( title INTEGER PRIMARY KEY, Name text, MembershipID text, Contact text, MembershipType text CHECK(MembershipType IN ('regular', 'Premium') "
        )
        self.conn.commit()
+
+   def fetch_book(self):
+       self.cur.execute("SELECT* FROM Books")
+       rows = self.cur.fetchall()
+       return rows
 
 
