@@ -11,6 +11,22 @@ class Database:
        )
        self.conn.commit()
 
+   def fetch_book(self):
+       self.cur.execute("SELECT * FROM Books")
+       rows = self.cur.fetchall()
+       return rows
+
+   def insert_book(self, bookID,title, author , ISBN, genre, availability_status):
+       self.cur.execute("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?, ?)", (bookID, title, author, ISBN,genre, availability_status))
+       self.conn.commit()
+
+   def delete_book(self, bookID):
+       self.cur.execute("DELETE FROM Book WHERE bookID=?", (bookID,))
+       self.conn.commit()
+
+   def  update_book(self,  bookID,title, author , ISBN, genre, availability_status):
+       self.cur.execute("UPDATE Book SET title=?, author=?, ISBN=?, genre=? WHERE id=?)" , ( title, author,ISBN, genre, availability_status, bookID))
+       self.conn.commit()
 
 def select_members(self):
     self.cur.execute("SELECT * FROM Members")
@@ -28,3 +44,7 @@ def update_members(self, MembershipID, Name, Contact, MembershipType):
 def delete_members(self, MembershipID):
     self.cur.execute("DELETE FROM Members VALUES (MembershipID?)", (MembershipID, ))
     self.conn.commit()
+
+def __del__(self):
+    self.conn.close()
+db = Database("LibraryDB.db")
