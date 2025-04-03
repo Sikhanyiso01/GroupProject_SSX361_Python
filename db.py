@@ -7,8 +7,10 @@ class Database:
        self.cur.execute(
            "CREATE TABLE IF NOT EXISTS Book( title INTEGER PRIMARY KEY, author text, ISBN text, genre text, Avaliability_Status text)")
        self.cur.execute(
-           "CREATE TABLE IF NOT EXIST Member( title INTEGER PRIMARY KEY, Name text, MembershipID text, Contact text, MembershipType text CHECK(MembershipType IN ('regular', 'Premium') "
-       )
+           "CREATE TABLE IF NOT EXIST Member( MembershipID INTEGER PRIMARY KEY, Name text, Contact text, MembershipType text")
        self.conn.commit()
+
+
+
 
 
