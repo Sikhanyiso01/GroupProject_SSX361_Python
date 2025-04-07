@@ -7,7 +7,7 @@ class Database:
        self.cur.execute(
            "CREATE TABLE IF NOT EXISTS Book( title text PRIMARY KEY, author text, ISBN text, genre text, Avaliability_Status text)")
        self.cur.execute(
-           "CREATE TABLE IF NOT EXISTS members (membershipid  INTEGER PRIMARY KEY AUTOINCREMENT, name text, Contact text, membershiptype text)"
+           "CREATE TABLE IF NOT EXISTS Members (membershipid  INTEGER PRIMARY KEY AUTOINCREMENT, name text, Contact text, membershiptype text)"
        )
 
        self.conn.commit()
@@ -55,8 +55,12 @@ class Database:
 
 
 
-   def _del_(self):
+   def __del__(self):
        self.conn.close()
 
-db = Database('libraryDB.db')
+if __name__ == "__main__":
+    db = Database("LibraryDB.db")
+    print("Database and tables created successfully."
+
+
 
