@@ -5,7 +5,7 @@ class Database:
        self.conn = sqlite3.connect(db)
        self.cur = self.conn.cursor()
        self.cur.execute(
-           "CREATE TABLE IF NOT EXISTS Book( title INTEGER PRIMARY KEY, author text, ISBN text, genre text, Avaliability_Status text)")
+           "CREATE TABLE IF NOT EXISTS Book( title TEXT PRIMARY KEY, author text, ISBN text, genre text, Avaliability_Status text)")
        self.cur.execute(
            "CREATE TABLE IF NOT EXIST MembershipID AUTOINCREMENT INTEGER PRIMARY KEY, Name text, Contact text, MembershipType text CHECK(MembershipType IN ('regular', 'Premium') "
        )
