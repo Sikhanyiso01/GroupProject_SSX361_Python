@@ -20,12 +20,12 @@ class LibrarySystem:
         self.main_frame.pack(pady=50)
 
         # Create buttons for main menu with custom colors
-        self.add_book_btn = tk.Button(self.main_frame, text="Add Book", width=15, height=2,
+        self.add_book_btn = tk.Button(self.main_frame, text="Manage Book", width=15, height=2,
                                       bg=self.button_bg, fg=self.button_fg, font=self.button_font,
                                       command=self.add_book)
         self.add_book_btn.pack(pady=10)
 
-        self.checkout_btn = tk.Button(self.main_frame, text="Check Out Book", width=15, height=2,
+        self.checkout_btn = tk.Button(self.main_frame, text="Manage Member", width=15, height=2,
                                       bg=self.button_bg, fg=self.button_fg, font=self.button_font,
                                       command=self.open_checkout_window)
         self.checkout_btn.pack(pady=10)
